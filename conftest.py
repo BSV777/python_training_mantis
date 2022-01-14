@@ -2,6 +2,7 @@ import pytest
 from fixture.application import Application
 import json
 import os.path
+from fixture.db import DBFixture
 
 
 fixture = None

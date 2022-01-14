@@ -13,9 +13,6 @@ def test_delete_project(app, db):
     app.session.login("administrator", "root")
     app.project.open_projects_page()
 
-    #app.project.delete_project_by_name("Proj_20220114_165232")
-    #app.project.delete_project_by_id("4")
-
     project = random.choice(old_projects)
     app.project.delete_project_by_id(project.id)
 

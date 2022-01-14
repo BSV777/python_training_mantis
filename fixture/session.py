@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-#from time import sleep
+from time import sleep
 
 class SessionHelper:
     def __init__(self, app):
@@ -23,4 +23,5 @@ class SessionHelper:
 
     def get_logged_user(self):
         wd = self.app.wd
-        return wd.find_element(By.CSS_SELECTOR, "span.label.hidden-xs.label-default.arrowed").text
+        sleep(3)
+        return wd.find_elements(By.XPATH, "//li/span")[0].text
