@@ -7,12 +7,12 @@ class ProjectHelper:
         self.app = app
 
     def open_projects_page(self):
-        self.app.open_projects_page()
-        # wd = self.app.wd
-        # wd.find_element(By.XPATH, "//a[contains(text(),'Manage Projects')]").click()
+        wd = self.app.wd
+        wd.get(self.app.base_url + "manage_proj_page.php")
 
     def add_project(self, project):
         wd = self.app.wd
+        self.open_projects_page()
         #wd.find_element(By.LINK_TEXT, "Create New Project").click()
         wd.find_element(By.XPATH, "//button[@type='submit']").click()
 
@@ -38,12 +38,14 @@ class ProjectHelper:
 
     def delete_project_by_name(self, name):
         wd = self.app.wd
+        self.open_projects_page()
         wd.find_element(By.XPATH, "//a[contains(text(),'%s')]" % name).click()
         wd.find_element(By.XPATH, "//input[@value='Delete Project']").click()
         wd.find_element(By.XPATH, "//input[@type='submit']").click()
 
     def delete_project_by_id(self, id):
         wd = self.app.wd
+        self.open_projects_page()
         wd.find_element(By.XPATH, "//a[contains(@href, 'manage_proj_edit_page.php?project_id=%s')]" % id).click()
         wd.find_element(By.XPATH, "//input[@value='Delete Project']").click()
         wd.find_element(By.XPATH, "//input[@type='submit']").click()

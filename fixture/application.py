@@ -1,6 +1,7 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.project import ProjectHelper
+from time import sleep
 
 
 class Application:
@@ -21,14 +22,7 @@ class Application:
     def open_home_page(self):
         wd = self.wd
         wd.get(self.base_url)
-
-    def open_projects_page(self):
-        wd = self.wd
-        wd.get(self.base_url + "manage_proj_page.php")
-
-    def logout(self):
-        wd = self.wd
-        wd.get(self.base_url + "logout_page.php")
+        sleep(3)
 
     def destroy(self):
         self.wd.quit()

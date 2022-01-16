@@ -24,6 +24,8 @@ def app(request):
     web_config = load_config(request.config.getoption("--target"))['web']
     if fixture is None or not fixture.is_valid():
         fixture = Application(browser=web_config["browser"], base_url=web_config["baseUrl"])
+    web_admin = load_config(request.config.getoption("--target"))['webadmin']
+    fixture.session.ensure_login(username=web_admin["username"], password=web_admin["password"])
     return fixture
 
 
@@ -40,7 +42,7 @@ def pytest_addoption(parser):
     parser.addoption("--target", action="store", default="target.json")
 
 
-@pytest.fixture(scope = "session")
+@pytest.fixture(scope="session")
 def db(request):
     db_config = load_config(request.config.getoption("--target"))['db']
     dbfixture = DBFixture(host=db_config['host'], name=db_config['name'],

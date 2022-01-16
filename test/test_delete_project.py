@@ -10,9 +10,6 @@ def test_delete_project(app, db):
         app.project.create(project)
     old_projects = db.get_project_list()
 
-    app.session.login("administrator", "root")
-    app.project.open_projects_page()
-
     project = random.choice(old_projects)
     app.project.delete_project_by_id(project.id)
 
@@ -22,4 +19,3 @@ def test_delete_project(app, db):
 
     assert sorted(old_projects, key=Project.id_or_max) == sorted(new_projects, key=Project.id_or_max)
 
-    app.session.logout()
