@@ -12,5 +12,10 @@
     "name": "bugtracker",
     "user": "root",
     "password": ""
+  },
+  "ftp": {
+    "host": "lab",
+    "username": "mantis",
+    "password": "mantis"
   }
 }
