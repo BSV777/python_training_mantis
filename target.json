@@ -17,5 +17,11 @@
     "host": "lab",
     "username": "mantis",
     "password": "mantis"
+  },
+  "james": {
+    "host": "lab",
+    "port": 4555,
+    "username": "root",
+    "password": "root"
   }
 }

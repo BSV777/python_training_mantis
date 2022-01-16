@@ -22,9 +22,9 @@ def load_config(file):
 @pytest.fixture
 def app(request, config):
     global fixture
-    web_config = config['web']
+    #web_config = config['web']
     if fixture is None or not fixture.is_valid():
-        fixture = Application(browser=web_config["browser"], base_url=web_config["baseUrl"])
+        fixture = Application(config=config)
     web_admin = config['webadmin']
     fixture.session.ensure_login(username=web_admin["username"], password=web_admin["password"])
     return fixture
