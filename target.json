@@ -1,6 +1,6 @@
 {
   "web": {
-    "baseUrl": "http://lab/mantisbt-2.25.2/",
+    "baseUrl": "http://localhost/mantisbt-2.25.2/",
     "browser": "firefox"
   },
   "webadmin": {
@@ -8,18 +8,18 @@
     "password": "root"
   },
     "db": {
-    "host": "lab",
+    "host": "localhost",
     "name": "bugtracker",
     "user": "root",
     "password": ""
   },
   "ftp": {
-    "host": "lab",
+    "host": "localhost",
     "username": "mantis",
     "password": "mantis"
   },
   "james": {
-    "host": "lab",
+    "host": "localhost",
     "port": 4555,
     "username": "root",
     "password": "root"
